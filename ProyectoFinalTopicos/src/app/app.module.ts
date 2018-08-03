@@ -12,6 +12,9 @@ import { AdminUsersPage } from '../pages/admin-users/admin-users';
 import { AdminRegistrarProductosPage } from '../pages/admin-registrar-productos/admin-registrar-productos';
 import { TabsPage } from '../pages/tabs/tabs';
 import { ProductoProvider } from '../providers/producto/producto';
+import { AdminDetalleProductoPage  } from '../pages/admin-detalle-producto/admin-detalle-producto';
+
+import { ParallaxHeaderDirective } from '../directives/parallax-header/parallax-header';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyArzyeoT4gsBUy1eyH3rScuB1TB3SfmD-Q",
@@ -28,7 +31,9 @@ export const firebaseConfig = {
     AdminProductosPage,
     AdminUsersPage,
     AdminRegistrarProductosPage,
-    TabsPage
+    TabsPage,
+    ParallaxHeaderDirective,
+    AdminDetalleProductoPage
   ],
   imports: [
     BrowserModule,
@@ -43,7 +48,8 @@ export const firebaseConfig = {
     AdminProductosPage,
     AdminUsersPage,
     AdminRegistrarProductosPage,
-    TabsPage
+    TabsPage,
+    AdminDetalleProductoPage
   ],
   providers: [
     StatusBar,

@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProductoProvider } from '../../providers/producto/producto';
 import { Observable } from 'rxjs/Observable';
 import { Producto } from '../../models/producto.interface';
+import { AdminDetalleProductoPage } from '../admin-detalle-producto/admin-detalle-producto';
 
 /**
  * Generated class for the AdminProductosPage page.
@@ -25,6 +26,9 @@ export class AdminProductosPage {
 
   ionViewDidEnter() {
     this.listaProductos = this.productoProvider.listarProductos().valueChanges();
+  }
+  detalle(id:string){
+    this.navCtrl.push(AdminDetalleProductoPage,{id:id})
   }
 
 }

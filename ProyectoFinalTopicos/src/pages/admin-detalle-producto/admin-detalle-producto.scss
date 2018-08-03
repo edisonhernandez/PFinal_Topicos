@@ -1,3 +1,39 @@
 page-admin-detalle-producto {
+    .header-image {
+        background-image: url(https://ununsplash.imgix.net/photo-1421091242698-34f6ad7fc088?fit=crop&fm=jpg&h=650&q=75&w=950);
+        height: 40vh;
+        background-size: cover;
+        filter: blur(5px);
+        background-position: center center;
+    }
+     
+    .main-content {
+         padding: 20px;
+         padding-top: 0;
+background-color: white;
+width: 100%;
+height: 100%;
+        
+    }
 
+    .dp{
+  -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        //border-radius: 50%;
+        height: 150px;
+        width: 140px;
+        z-index: 10;
+        margin-top:-120px;
+        position: relative;
+        left:50%;
+        margin-right:-50%;
+        transform: translate(-50%,-50%);
+        box-shadow: -6px 15px 81px 3px rgba(0,0,0,0.75);
+    }
+    ion-list ion-item{
+        color:red;
+        background-color: #ecf0f1;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
 }

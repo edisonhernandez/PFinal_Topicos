@@ -1,18 +1,61 @@
-<!--
-  Generated template for the AdminDetalleProductoPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
-    <ion-title>adminDetalleProducto</ion-title>
+    <ion-title>Detalle</ion-title>
   </ion-navbar>
 
 </ion-header>
 
+<ion-content parallax-header>
+ 
+  <div class="header-image" ></div>
+ 
+  <div class="main-content">
+      
+      <img src="{{detallesProd.imagen}}" class="dp">
+      <h1 text-center>{{detallesProd.nombre}}</h1>
+      <ion-list no-lines>
+        <ion-item>
+          <ion-icon name="keypad" item-start></ion-icon>
+          Codigo: <p>{{detallesProd.codigo}}</p>
+         
+        </ion-item>
+        <ion-item>
+          <ion-icon name="pricetags" item-start></ion-icon>
+          Marca: 
+          <p>{{detallesProd.marca}}</p>
+         
+        </ion-item>
+        <ion-item>
+          <ion-icon name="list" item-start></ion-icon>
+          Descripcion: <p>{{detallesProd.descripcion}}</p>
+        </ion-item>
 
-<ion-content padding>
+        <ion-item>
+          <ion-icon name="logo-usd" item-start></ion-icon>
+          Precio de compra: <p>{{detallesProd.precioCompra}}</p>
+        </ion-item>
 
+        <ion-item>
+          <ion-icon name="logo-usd" item-start></ion-icon>
+          Precio de venta: <p>{{detallesProd.precioVenta}}</p>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="basket" item-start></ion-icon>
+          Stock: <p>{{detallesProd.stock}}</p>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="calendar" item-start></ion-icon>
+          Registrado el: <p>{{detallesProd.fechaRegistro}}</p>
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="flash" item-start></ion-icon>
+          Estado: <p>{{detallesProd.estado}}</p>
+        </ion-item>
+      </ion-list>
+  </div>
 </ion-content>
+

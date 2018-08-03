@@ -3,12 +3,12 @@
 <ion-content class="card-background-page">
 
   <ion-card *ngFor= "let prod of listaProductos | async">
-    <img src="../../assets/imgs/pr1.jpg"/>
+    <img src="{{prod.imagen}}"/>
     <div class="card-title">
         <ion-item>
             <span item-start>{{prod.nombre}}</span>
             
-            <button ion-button icon-start clear item-end>
+            <button (click)="detalle(prod.id)" ion-button icon-start clear item-end>
               <ion-icon name="list-box"></ion-icon>
               Detalles
             </button>
