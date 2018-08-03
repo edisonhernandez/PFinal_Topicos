@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ProductoProvider } from '../../providers/producto/producto';
+import { Observable } from 'rxjs/Observable';
+import { Producto } from '../../models/producto.interface';
 
 /**
  * Generated class for the AdminProductosPage page.
@@ -14,12 +17,14 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'admin-productos.html',
 })
 export class AdminProductosPage {
+  public listaProductos: Observable<Producto[]>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams,public productoProvider: ProductoProvider) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AdminProductosPage');
+  ionViewDidEnter() {
+    this.listaProductos = this.productoProvider.listarProductos().valueChanges();
   }
 
 }

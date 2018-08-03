@@ -10,6 +10,8 @@ import { HomePage } from '../pages/home/home';
 import { AdminProductosPage } from '../pages/admin-productos/admin-productos';
 import { AdminUsersPage } from '../pages/admin-users/admin-users';
 import { AdminRegistrarProductosPage } from '../pages/admin-registrar-productos/admin-registrar-productos';
+import { TabsPage } from '../pages/tabs/tabs';
+import { ProductoProvider } from '../providers/producto/producto';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyArzyeoT4gsBUy1eyH3rScuB1TB3SfmD-Q",
@@ -25,7 +27,8 @@ export const firebaseConfig = {
     HomePage,
     AdminProductosPage,
     AdminUsersPage,
-    AdminRegistrarProductosPage
+    AdminRegistrarProductosPage,
+    TabsPage
   ],
   imports: [
     BrowserModule,
@@ -39,12 +42,14 @@ export const firebaseConfig = {
     HomePage,
     AdminProductosPage,
     AdminUsersPage,
-    AdminRegistrarProductosPage
+    AdminRegistrarProductosPage,
+    TabsPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ProductoProvider
   ]
 })
 export class AppModule {}

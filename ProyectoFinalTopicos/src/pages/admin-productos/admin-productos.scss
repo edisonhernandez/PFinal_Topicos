@@ -1,3 +1,37 @@
 page-admin-productos {
+    .card-background-page {
 
+        ion-card {
+          position: relative;
+          text-align: center;
+        }
+      
+        .card-title {
+            
+            background-color: rgba(0, 0, 0, 0.808);
+          position: absolute;
+          top: 73%;
+          font-size: 2.0em;
+          width: 100%;
+          font-weight: bold;
+          color: #fff;
+          bottom: 0px !important;
+
+          ion-item{
+             background-color: transparent;
+             padding-top: 5px;
+             color: white;
+             font-weight: bolder;
+             font-size: 1.7rem;
+
+             button{
+                 background-color: greenyellow;
+                 color: rgb(7, 36, 116);
+             }
+          }
+        }
+      
+      }
+
+     
 }
