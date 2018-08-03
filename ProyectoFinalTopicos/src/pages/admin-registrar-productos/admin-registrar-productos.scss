@@ -1,3 +1,24 @@
 page-admin-registrar-productos {
-
+    .usFoto{
+        width: 87%;
+        margin-left: auto;
+        margin-right: auto;
+        
+        //height: 25vh;
+        
+    }
+    .dp{
+        -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        height: 140px;
+        width: 130px;
+        //z-index: 10;
+        //margin-top:-70px;
+        //position: relative;
+        //left:50%;
+        margin-right:auto;
+        margin-left: auto;
+       // transform: translate(-50%,-50%);
+        box-shadow: 0px 13px 40px -8px rgba(0,0,0,0.75);
+    }
 }

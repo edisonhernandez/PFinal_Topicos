@@ -14,5 +14,75 @@
 
 
 <ion-content padding>
+  <form  [formGroup]="crearProductoForm" (submit)="crearProducto()" novalidate>
+      <div class="usFoto">
+
+          <ion-card>
+              <img src="{{profilePhoto}}" class="dp"/>
+              <div class="card-title"><button ion-button  (click)="presentActionSheet()"><ion-icon ios="ios-camera" md="md-camera"></ion-icon></button></div>
+            </ion-card>
+    
+    </div>
+    <ion-item>
+      <ion-label  style="color: black;" floating>Código</ion-label>
+      <ion-input formControlName="codigo" type="text" >
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label  style="color: black;" floating>Nombre</ion-label>
+      <ion-input formControlName="nombre" type="text" >
+      </ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label style="color: black;" floating>Marca</ion-label>
+        <ion-input formControlName="marca" type="tex" 
+          >
+        </ion-input>
+      </ion-item>
+    <ion-list>
+      <ion-item>
+        <ion-label>Categoría</ion-label>
+        <ion-select formControlName="categoria">
+          <ion-option value="nes">Camisetas</ion-option>
+          <ion-option value="n64">Suderas</ion-option>
+          <ion-option value="ps">Calentadores</ion-option>
+          <ion-option value="genesis">Jeans</ion-option>
+          <ion-option value="saturn">Pantalonetas</ion-option>
+          <ion-option value="snes">Sombreros</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    <ion-item>
+        <ion-label style="color: black;" floating>Descripción</ion-label>
+        <ion-input formControlName="descripcion" type="texto" 
+          >
+        </ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label style="color: black;" floating>Precio de compra</ion-label>
+          <ion-input formControlName="precioCompra" type="number" 
+            >
+          </ion-input>
+        </ion-item>
+    <ion-item>
+      <ion-label style="color: black;" floating>Precio de venta</ion-label>
+      <ion-input formControlName="precioVenta" type="number" 
+        >
+      </ion-input>
+    </ion-item>
+
+    
+    <ion-item>
+      <ion-label  style="color: black;" floating>Stock</ion-label>
+      <ion-textarea formControlName="stock" type="number" 
+       >
+      </ion-textarea>
+    </ion-item>
+
+
+    <button ion-button block type="submit" [disabled]="!crearProductoForm.valid">
+      <span>Guardar Producto</span>
+    </button>
+  </form>
 
 </ion-content>
