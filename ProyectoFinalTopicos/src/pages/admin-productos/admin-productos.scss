@@ -1,16 +1,23 @@
 page-admin-productos {
     .card-background-page {
-
+        display: flex;
+        flex-direction: column;
         ion-card {
           position: relative;
           text-align: center;
+          border: 2px solid blue;
+          width: 90%;
+
+          img:hover{
+            cursor: pointer;
+          }
         }
       
         .card-title {
             
             background-color: rgba(0, 0, 0, 0.808);
           position: absolute;
-          top: 73%;
+          top: 71%;
           font-size: 2.0em;
           width: 100%;
           font-weight: bold;
@@ -18,11 +25,15 @@ page-admin-productos {
           bottom: 0px !important;
 
           ion-item{
+            width: 100%;
+            
              background-color: transparent;
-             padding-top: 5px;
+             padding-top: 3px;
+             padding-left: 6px;
              color: white;
              font-weight: bolder;
-             font-size: 1.7rem;
+             font-size: 1.5rem;
+             text-transform: capitalize;
 
              button{
                  background-color: greenyellow;
