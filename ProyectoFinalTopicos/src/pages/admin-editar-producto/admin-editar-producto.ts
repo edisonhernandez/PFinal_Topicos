@@ -3,7 +3,8 @@ import { IonicPage, NavController, NavParams,Loading,LoadingController,AlertCont
   Alert } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ProductoProvider} from '../../providers/producto/producto';
-
+import { SmartAudioProvider } from '../../providers/smart-audio/smart-audio';
+ 
 /**
  * Generated class for the AdminEditarProductoPage page.
  *
@@ -22,7 +23,7 @@ export class AdminEditarProductoPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public formBuilder: FormBuilder,public loadingCtrl: LoadingController,
     public alertCtrl: AlertController,
-    public productoProvider: ProductoProvider) {
+    public productoProvider: ProductoProvider,public smartAudio: SmartAudioProvider) {
     this.editarProductoForm = formBuilder.group({
       codigo: ['', Validators.required],
       nombre: ['', Validators.required],
@@ -42,6 +43,7 @@ export class AdminEditarProductoPage {
   }
 
   editarProducto(){
+   this.smartAudio.play('tabSwitch');
     
     const categoria = this.editarProductoForm.value.categoria;
     const codigo= this.editarProductoForm.value.codigo;
@@ -61,19 +63,23 @@ if(categoria != '' && codigo !='' && descripcion !='' && marca !='' && nombre !=
       .then(
         () => {
           loading.dismiss().then(() => {
+            this.smartAudio.stop('tabSwitch');
             const alert: Alert = this.alertCtrl.create({
               message: "Actualizado con exito",
               buttons: [{ text: 'Ok', role: 'cancel' }],
             });
+            this.smartAudio.play('confirmar');
             alert.present();
           });
         },
         error => {
           loading.dismiss().then(() => {
+           
             const alert: Alert = this.alertCtrl.create({
               message: error.message,
               buttons: [{ text: 'Ok', role: 'cancel' }],
             });
+           
             alert.present();
           });
         }

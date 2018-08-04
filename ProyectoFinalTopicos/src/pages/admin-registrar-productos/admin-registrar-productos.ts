@@ -5,7 +5,6 @@ import {IonicPage, NavController, NavParams,Loading,LoadingController,AlertContr
   import { Camera, CameraOptions } from '@ionic-native/camera';
 import { ActionSheetController } from 'ionic-angular';
 import { ProductoProvider} from '../../providers/producto/producto';
-import { NativeAudio } from '@ionic-native/native-audio';
 import { SmartAudioProvider } from '../../providers/smart-audio/smart-audio';
  
 /**
@@ -28,7 +27,7 @@ export class AdminRegistrarProductosPage {
     public alertCtrl: AlertController, public formBuilder: FormBuilder,
     private camera: Camera,public actionSheetCtrl: ActionSheetController,
     public productoProvider: ProductoProvider,
-    private nativeAudio: NativeAudio,public smartAudio: SmartAudioProvider
+    public smartAudio: SmartAudioProvider
     ) {
 
       this.crearProductoForm = formBuilder.group({
@@ -150,10 +149,13 @@ if(categoria != '' && codigo !='' && descripcion !='' && marca !='' && nombre !=
         () => {
          
           loading.dismiss().then(() => {
+            this.smartAudio.stop('tabSwitch');
             const alert: Alert = this.alertCtrl.create({
               message: "Guardado con exito",
               buttons: [{ text: 'Ok', role: 'cancel' }],
+              
             });
+            this.smartAudio.play('confirmar');
             alert.present();
           });
         },

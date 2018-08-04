@@ -22,6 +22,9 @@ export class MyApp {
       smartAudio.preload('tabSwitch', 'assets/sounds/2.wav');
       smartAudio.preload('tabSwitch2', 'assets/sounds/ringtones-xperia-notification.mp3');
       smartAudio.preload('activar', 'assets/sounds/mario-bros vida.mp3');
+      smartAudio.preload('confirmar', 'assets/sounds/confirmar.wav');
+      smartAudio.preload('tab', 'assets/sounds/tab.wav');
+
 
       
     });

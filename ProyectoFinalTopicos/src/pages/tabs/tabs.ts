@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AdminProductosPage } from '../admin-productos/admin-productos';
 import { AdminUsersPage } from '../admin-users/admin-users';
 import { AdminRegistrarProductosPage } from '../admin-registrar-productos/admin-registrar-productos';
+import { SmartAudioProvider } from '../../providers/smart-audio/smart-audio';
 
 
 @Component({
@@ -13,7 +14,10 @@ export class TabsPage {
   tab2Root = AdminUsersPage;
   tab3Root = AdminRegistrarProductosPage;
 
-  constructor() {
+  constructor(  public smartAudio: SmartAudioProvider) {
 
   }
+  changeTab() {
+    this.smartAudio.play('tab');
+}
 }

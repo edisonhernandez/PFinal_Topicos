@@ -31,7 +31,7 @@ export class SmartAudioProvider {
 
     } else {
 
-        this.nativeAudio.preloadSimple(key, asset);
+        this.nativeAudio.preloadComplex(key, asset, 1, 1, 0);
 
         let audio = {
             key: key,
@@ -58,6 +58,29 @@ play(key){
     } else {
 
         this.nativeAudio.play(audio.asset).then((res) => {
+            console.log(res);
+        }, (err) => {
+            console.log(err);
+        });
+
+    }
+
+}
+
+stop(key){
+
+    let audio = this.sounds.find((sound) => {
+        return sound.key === key;
+    });
+
+    if(audio.type === 'html5'){
+
+        let audioAsset = new Audio(audio.asset);
+        audioAsset.pause();
+
+    } else {
+
+        this.nativeAudio.stop(audio.asset).then((res) => {
             console.log(res);
         }, (err) => {
             console.log(err);
