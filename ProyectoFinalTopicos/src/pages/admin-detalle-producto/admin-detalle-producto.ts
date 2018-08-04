@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,Loading,LoadingController,AlertController,Alert  } from 'ionic-angular';
 import firebase from 'firebase';
 import 'firebase/firestore';
+import { ModalController } from 'ionic-angular';
+import { AdminEditarProductoPage } from '../admin-editar-producto/admin-editar-producto';
+import { ProductoProvider} from '../../providers/producto/producto';
+
 /**
  * Generated class for the AdminDetalleProductoPage page.
  *
@@ -14,7 +18,7 @@ import 'firebase/firestore';
   selector: 'page-admin-detalle-producto',
   templateUrl: 'admin-detalle-producto.html',
 })
-export class AdminDetalleProductoPage {
+export class AdminDetalleProductoPage{
   public detallesProd = { id:'',
     categoria:'',
     codigo:'',
@@ -28,7 +32,9 @@ export class AdminDetalleProductoPage {
     precioVenta:'',
     stock:'',}
 id = '';
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public modalCtrl: ModalController,public loadingCtrl: LoadingController,
+    public alertCtrl: AlertController,public productoProvider: ProductoProvider) {
     this.id = this.navParams.get('id');
   }
 
@@ -78,5 +84,103 @@ id = '';
   });
 
   
+  }
+
+  
+  presentProductoModal(id:string) {
+    
+    let productoModal = this.modalCtrl.create(AdminEditarProductoPage, { id: id });
+    productoModal.present();
+  }
+
+  desactivarProduct() {
+    const confirm = this.alertCtrl.create({
+      title: 'Desactivar',
+      message: 'Estas seguro de desactivar este producto?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          handler: () => {
+            console.log('Disagree clicked');
+          }
+        },
+        {
+          text: 'Desactivar',
+          handler: () => {
+            const loading: Loading = this.loadingCtrl.create();
+            loading.present();
+            this.productoProvider.desactivarProducto(this.id)
+            .then(
+              () => {
+                this.detallesProd.estado = 'desactivo';
+                loading.dismiss().then(() => {
+                  const alert: Alert = this.alertCtrl.create({
+                    message: "Desactivado con exito",
+                    buttons: [{ text: 'Ok', role: 'cancel' }],
+                  });
+                  alert.present();
+                });
+              },
+              error => {
+                loading.dismiss().then(() => {
+                  const alert: Alert = this.alertCtrl.create({
+                    message: error.message,
+                    buttons: [{ text: 'Ok', role: 'cancel' }],
+                  });
+                  alert.present();
+                });
+              }
+            );
+          }
+        }
+      ]
+    });
+    confirm.present();
+  }
+
+  activarProduct() {
+    const confirm = this.alertCtrl.create({
+      title: 'Activar',
+      message: 'Estas seguro de desactivar este producto?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          handler: () => {
+            console.log('Disagree clicked');
+          }
+        },
+        {
+          text: 'Activar',
+          handler: () => {
+            
+            const loading: Loading = this.loadingCtrl.create();
+            loading.present();
+            this.productoProvider.activarProducto(this.id)
+            .then(
+              () => {
+                this.detallesProd.estado = 'activo';
+                loading.dismiss().then(() => {
+                  const alert: Alert = this.alertCtrl.create({
+                    message: "Activado con exito",
+                    buttons: [{ text: 'Ok', role: 'cancel' }],
+                  });
+                  alert.present();
+                });
+              },
+              error => {
+                loading.dismiss().then(() => {
+                  const alert: Alert = this.alertCtrl.create({
+                    message: error.message,
+                    buttons: [{ text: 'Ok', role: 'cancel' }],
+                  });
+                  alert.present();
+                });
+              }
+            );
+          }
+        }
+      ]
+    });
+    confirm.present();
   }
 }

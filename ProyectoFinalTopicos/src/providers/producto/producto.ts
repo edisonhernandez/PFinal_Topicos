@@ -39,4 +39,17 @@ export class ProductoProvider {
       id,categoria,codigo,estado,fechaRegistro,imagen,descripcion,marca,nombre,precioCompra,precioVenta ,stock
     });
   }
+
+  updateProducto(id: string, categoria:string, codigo:string, descripcion:string, marca:string,nombre:string,
+  precioCompra:number,precioVenta:number,stock:number): Promise<void> {
+    return this.firestore.doc(`productos/${id}`).update({categoria:categoria,codigo:codigo,descripcion:descripcion,marca:marca,
+      nombre:nombre,precioCompra:precioCompra,precioVenta:precioVenta,stock:stock});
+  }
+
+  desactivarProducto(id: string): Promise<void> {
+      return this.firestore.doc(`productos/${id}`).update({estado:'desactivo'});
+    }
+    activarProducto(id: string): Promise<void> {
+      return this.firestore.doc(`productos/${id}`).update({estado:'activo'});
+    }
 }

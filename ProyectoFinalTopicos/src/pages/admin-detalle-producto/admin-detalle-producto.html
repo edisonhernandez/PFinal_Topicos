@@ -25,14 +25,18 @@
             <ion-list >
                 <ion-item>
                   
-                  <button color="danger" ion-button outline item-end icon-start>
+                  <button (click)="presentProductoModal(id)" color="danger" ion-button outline item-end icon-start>
                     <ion-icon name="create"></ion-icon>
                     Editar
                   </button>
-                  <button color="secondary" ion-button outline item-end icon-start>
+                  <button (click)="desactivarProduct()" *ngIf="detallesProd.estado == 'activo'" color="secondary" ion-button outline item-end icon-start>
                       <ion-icon name="checkmark-circle"></ion-icon>
                       Activo
                     </button>
+                    <button (click)="activarProduct()" *ngIf="detallesProd.estado == 'desactivo'" color="danger" ion-button outline item-end icon-start>
+                        <ion-icon name="checkmark-circle"></ion-icon>
+                        Desactivo
+                      </button>
                 </ion-item>
               </ion-list>
         </div>
