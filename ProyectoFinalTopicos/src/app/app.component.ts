@@ -20,7 +20,7 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
       smartAudio.preload('tabSwitch', 'assets/sounds/2.wav');
-      smartAudio.preload('tabSwitch2', 'assets/sounds/4.mp3');
+      smartAudio.preload('tabSwitch2', 'assets/sounds/ringtones-xperia-notification.mp3');
       smartAudio.preload('activar', 'assets/sounds/mario-bros vida.mp3');
 
       
