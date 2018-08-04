@@ -1,0 +1,97 @@
+<!--
+  Generated template for the AdminDetalleUsuarioPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar class="nava">
+      <ion-item>
+          <ion-icon item-end></ion-icon>
+          Usuario
+          <ion-badge item-start navPop><ion-icon name="arrow-back"></ion-icon></ion-badge>
+        </ion-item>
+    
+  
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="detalleUsuario">
+    <div class="usFoto">
+
+        <ion-card >
+            <img *ngIf="detallesUser.imagen == ''" src="../../assets/imgs/user.jpg" class="dp"/>
+            <img *ngIf="detallesUser.imagen != ''" src="{{detallesUser.imagen}}" class="dp"/>
+            <ion-grid>
+                <ion-row>
+                  <ion-col class="nameUser" col-12>
+                      <p>{{detallesUser.nombre}} {{detallesUser.apellidos}}</p>
+                  </ion-col>    
+                </ion-row>
+              </ion-grid>
+            <ion-grid class="grid2">
+                <ion-row>
+                  
+                 
+                  <ion-col class="etiquetas" col-6>
+                      E-mail:
+                  </ion-col>
+                  <ion-col col-6 class="conten">
+                      <p>{{detallesUser.email}}</p>
+                  </ion-col>
+                  
+                  <ion-col class="etiquetas" col-6>
+                      Dirección:
+                  </ion-col>
+                  <ion-col col-6 class="conten">
+                      <p>{{detallesUser.direccion}}</p>
+                  </ion-col>
+
+                  <ion-col class="etiquetas" col-6>
+                      Teléfono:
+                  </ion-col>
+                  <ion-col col-6 class="conten">
+                      <p>{{detallesUser.telefono}}</p>
+                  </ion-col>
+
+                  <ion-col class="etiquetas" col-6>
+                      Celular:
+                  </ion-col>
+                  <ion-col col-6 class="conten">
+                      <p>{{detallesUser.celular}}</p>
+                  </ion-col>
+                  <ion-col class="etiquetas" col-6>
+                      Nació el:
+                  </ion-col>
+                  <ion-col col-6 class="conten">
+                      <p>{{detallesUser.nacimiento}}</p>
+                  </ion-col>
+                  <ion-col class="etiquetas" col-6>
+                      Genero:
+                  </ion-col>
+                  <ion-col col-6 class="conten">
+                      <p>{{detallesUser.genero}}</p>
+                  </ion-col>
+                  <ion-col class="etiquetas" col-6>
+                      Registrado el:
+                  </ion-col>
+                  <ion-col col-6 class="conten">
+                      <p>{{detallesUser.fechaRegistro}}</p>
+                  </ion-col>
+                  <ion-col class="etiquetas" col-6>
+                      Estado:
+                  </ion-col>
+                  <ion-col col-6 class="conten">
+                      <p>{{detallesUser.estado}}</p>
+                  </ion-col>
+                  
+                </ion-row>
+              </ion-grid>
+          </ion-card>
+          
+  </div>
+
+</ion-content>

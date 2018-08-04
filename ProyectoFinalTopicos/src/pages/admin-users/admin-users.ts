@@ -3,6 +3,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { UsuarioProvider } from '../../providers/usuario/usuario';
 import { Observable } from 'rxjs/Observable';
 import { Usuario } from '../../models/usuario.interface';
+import { ActionSheetController } from 'ionic-angular';
+import { ModalController } from 'ionic-angular';
+import { AdminDetalleUsuarioPage } from '../admin-detalle-usuario/admin-detalle-usuario';
+
 /**
  * Generated class for the AdminUsersPage page.
  *
@@ -19,7 +23,8 @@ export class AdminUsersPage {
   users:any;
   public listaUsuarios: Observable<Usuario[]>;
   constructor(public navCtrl: NavController, 
-    public navParams: NavParams,public usuarioProvider: UsuarioProvider) {
+    public navParams: NavParams,public usuarioProvider: UsuarioProvider,
+    public actionSheetCtrl: ActionSheetController,public modalCtrl: ModalController) {
       this.users = 'Ccompras';
     }
 
@@ -29,4 +34,9 @@ export class AdminUsersPage {
   ionViewDidEnter() {
     this.listaUsuarios = this.usuarioProvider.listarUsuarios().valueChanges();
   }
+  presentProfileModal(id:string) {
+    let profileModal = this.modalCtrl.create(AdminDetalleUsuarioPage, { id: id });
+    profileModal.present();
+  }
+  
 }

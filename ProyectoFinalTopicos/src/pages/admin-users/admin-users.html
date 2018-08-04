@@ -26,7 +26,7 @@
                   </ion-item>
                   
                   <ion-item-options side="right">
-                    <button ion-button color="primary">
+                    <button (click)="presentProfileModal(user.id)" ion-button color="primary">
                       <ion-icon name="list-box"></ion-icon>
                       Detalles
                     </button>
