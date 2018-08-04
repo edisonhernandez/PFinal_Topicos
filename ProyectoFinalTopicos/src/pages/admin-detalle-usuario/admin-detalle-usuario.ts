@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import firebase from 'firebase';
 import 'firebase/firestore';
 import { ModalController, ViewController } from 'ionic-angular';
+import { LoadingController } from 'ionic-angular';
 /**
  * Generated class for the AdminDetalleUsuarioPage page.
  *
@@ -30,15 +31,17 @@ public detallesUser = { id:'',
     imagen:'',
     estado:'',}
   constructor(public navCtrl: NavController, 
-    public navParams: NavParams,public viewCtrl: ViewController) {
+    public navParams: NavParams,public viewCtrl: ViewController,public loadingCtrl: LoadingController) {
   this.idUser = this.navParams.get('id');
 
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AdminDetalleUsuarioPage');
+    this.presentLoading();
   }
   ionViewDidEnter(){
+   
     /*this.inforuserCollection = this.asf.collection('infoUser');
     this.info = this.inforuserCollection.valueChanges();
   
@@ -49,6 +52,7 @@ public detallesUser = { id:'',
     var docRef = db.collection("usuarios").doc(this.idUser);
   var self = this;
   docRef.get().then(function(doc) {
+    
       if (doc.exists) {
         const mydata = doc.data();
         /*self.userName = mydata.userNombre;
@@ -82,5 +86,11 @@ public detallesUser = { id:'',
 
   
   }
- 
+  presentLoading() {
+    const loader = this.loadingCtrl.create({
+      content: "Please wait...",
+      duration: 1000
+    });
+    loader.present();
+  }
 }
