@@ -52,4 +52,7 @@ export class ProductoProvider {
     activarProducto(id: string): Promise<void> {
       return this.firestore.doc(`productos/${id}`).update({estado:'activo'});
     }
+    actualizarImagenProducto(id: string, imagen:any): Promise<void> {
+      return this.firestore.doc(`productos/${id}`).update({imagen:imagen});
+    }
 }

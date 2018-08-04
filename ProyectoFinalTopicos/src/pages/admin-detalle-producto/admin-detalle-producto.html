@@ -16,8 +16,8 @@
       <ion-fab right bottom>
           <button ion-fab color="primary" mini><ion-icon name="camera"></ion-icon></button>
           <ion-fab-list >
-            <button ion-fab><ion-icon name="ios-camera"></ion-icon></button>
-            <button ion-fab><ion-icon name="images"></ion-icon></button>
+            <button (click)="takephoto()" ion-fab><ion-icon name="ios-camera"></ion-icon></button>
+            <button (click)="cropphoto()" ion-fab><ion-icon name="images"></ion-icon></button>
            
           </ion-fab-list>
         </ion-fab>

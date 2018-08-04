@@ -5,7 +5,7 @@ import 'firebase/firestore';
 import { ModalController } from 'ionic-angular';
 import { AdminEditarProductoPage } from '../admin-editar-producto/admin-editar-producto';
 import { ProductoProvider} from '../../providers/producto/producto';
-
+import { Camera, CameraOptions } from '@ionic-native/camera';
 /**
  * Generated class for the AdminDetalleProductoPage page.
  *
@@ -19,6 +19,7 @@ import { ProductoProvider} from '../../providers/producto/producto';
   templateUrl: 'admin-detalle-producto.html',
 })
 export class AdminDetalleProductoPage{
+  public profilePhoto:any;
   public detallesProd = { id:'',
     categoria:'',
     codigo:'',
@@ -34,7 +35,8 @@ export class AdminDetalleProductoPage{
 id = '';
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public modalCtrl: ModalController,public loadingCtrl: LoadingController,
-    public alertCtrl: AlertController,public productoProvider: ProductoProvider) {
+    public alertCtrl: AlertController,
+    public productoProvider: ProductoProvider,private camera: Camera) {
     this.id = this.navParams.get('id');
   }
 
@@ -182,5 +184,95 @@ id = '';
       ]
     });
     confirm.present();
+  }
+
+  takephoto(){
+    const options: CameraOptions = {
+      quality: 100,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE,
+      allowEdit:true,
+      targetWidth:300,
+      targetHeight:500
+    }
+    
+    this.camera.getPicture(options).then((imageData) => {
+     // imageData is either a base64 encoded string or a file URI
+     // If it's base64:
+     this.profilePhoto = 'data:image/jpeg;base64,' + imageData;
+     const loading: Loading = this.loadingCtrl.create();
+     loading.present();
+     this.productoProvider.actualizarImagenProducto(this.id,this.profilePhoto)
+     .then(
+       () => {
+       
+         loading.dismiss().then(() => {
+          this.detallesProd.imagen = this.profilePhoto;
+           const alert: Alert = this.alertCtrl.create({
+             message: "Imagen actualizada",
+             buttons: [{ text: 'Ok', role: 'cancel' }],
+           });
+           alert.present();
+         });
+       },
+       error => {
+         loading.dismiss().then(() => {
+           const alert: Alert = this.alertCtrl.create({
+             message: error.message,
+             buttons: [{ text: 'Ok', role: 'cancel' }],
+           });
+           alert.present();
+         });
+       }
+     );
+    }, (err) => {
+     // Handle error
+    });
+  }
+
+  cropphoto(){
+    const options: CameraOptions = {
+      quality: 100,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+      allowEdit:true,
+      targetWidth:300,
+      targetHeight:300
+
+    }
+    
+    this.camera.getPicture(options).then((imageData) => {
+     // imageData is either a base64 encoded string or a file URI
+     // If it's base64:
+     this.profilePhoto = 'data:image/jpeg;base64,' + imageData;
+     const loading: Loading = this.loadingCtrl.create();
+     loading.present();
+     this.productoProvider.actualizarImagenProducto(this.id,this.profilePhoto)
+     .then(
+       () => {
+       
+         loading.dismiss().then(() => {
+          this.detallesProd.imagen = this.profilePhoto;
+           const alert: Alert = this.alertCtrl.create({
+             message: "Imagen actualizada",
+             buttons: [{ text: 'Ok', role: 'cancel' }],
+           });
+           alert.present();
+         });
+       },
+       error => {
+         loading.dismiss().then(() => {
+           const alert: Alert = this.alertCtrl.create({
+             message: error.message,
+             buttons: [{ text: 'Ok', role: 'cancel' }],
+           });
+           alert.present();
+         });
+       }
+     );
+    }, (err) => {
+     // Handle error
+    });
   }
 }
