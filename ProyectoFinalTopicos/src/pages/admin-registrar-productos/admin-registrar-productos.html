@@ -14,13 +14,17 @@
 
 
 <ion-content padding>
-  <form  [formGroup]="crearProductoForm" (submit)="crearProducto()" novalidate>
+  <form  [formGroup]="crearProductoForm" novalidate>
       <div class="usFoto">
 
-          <ion-card>
-              <img src="{{profilePhoto}}" class="dp"/>
+          <ion-card *ngIf="profilePhoto == undefined">
+              <img src="../../assets/imgs/compras-moviles.jpg" class="dp"/>
               <div class="card-title"><button ion-button  (click)="presentActionSheet()"><ion-icon ios="ios-camera" md="md-camera"></ion-icon></button></div>
             </ion-card>
+            <ion-card *ngIf="profilePhoto != undefined">
+              <img src="{{profilePhoto}}" class="dp"/>
+              <div class="card-title"><button ion-button  (click)="presentActionSheet()"><ion-icon ios="ios-camera" md="md-camera"></ion-icon></button></div>
+            </ion-card>  
     
     </div>
     <ion-item>
@@ -80,7 +84,7 @@
     </ion-item>
 
 
-    <button ion-button block type="submit" [disabled]="!crearProductoForm.valid">
+    <button ion-button block type="submit" (click)="crearProducto()" [disabled]="!crearProductoForm.valid">
       <span>Guardar Producto</span>
     </button>
   </form>

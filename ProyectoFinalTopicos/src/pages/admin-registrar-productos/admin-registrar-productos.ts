@@ -117,8 +117,7 @@ export class AdminRegistrarProductosPage {
   }
   
   crearProducto(): void {
-    const loading: Loading = this.loadingCtrl.create();
-    loading.present();
+   
     
     if(this.profilePhoto == undefined){
       this.profilePhoto = 'http://rebeldstore.com/352/sudadera-original-hombre-grey.jpg';
@@ -137,9 +136,11 @@ export class AdminRegistrarProductosPage {
     const stock= this.crearProductoForm.value.stock;
    
    
-
-
-    this.productoProvider.crearProducto(categoria,codigo,imagen,descripcion,marca,nombre,precioCompra,precioVenta,stock)
+if(categoria != '' && codigo !='' && descripcion !='' && marca !='' && nombre != '' &&
+    precioCompra !='' && precioVenta !='' && stock !=''){
+      const loading: Loading = this.loadingCtrl.create();
+      loading.present();
+      this.productoProvider.crearProducto(categoria,codigo,imagen,descripcion,marca,nombre,precioCompra,precioVenta,stock)
       .then(
         () => {
           loading.dismiss().then(() => {
@@ -160,5 +161,10 @@ export class AdminRegistrarProductosPage {
           });
         }
       );
+}else{
+  alert('llena todos los campos');
+}
+
+    
   }
 }

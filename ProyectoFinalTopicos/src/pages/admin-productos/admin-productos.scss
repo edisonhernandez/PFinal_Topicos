@@ -7,7 +7,11 @@ page-admin-productos {
           text-align: center;
           border: 2px solid blue;
           width: 90%;
+          height: 100%;
 
+          img{
+            height: 100%;
+          }
           img:hover{
             cursor: pointer;
           }
