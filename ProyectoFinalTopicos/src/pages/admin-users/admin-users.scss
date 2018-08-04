@@ -1,3 +1,26 @@
 page-admin-users {
-
+    .usuarios{
+        .list-ios ion-item-sliding {
+            background-color: #fff;
+            border-bottom: 0 !important;
+        }
+        .name{
+            text-transform: capitalize;
+        }
+        ion-list{
+            ion-item-sliding{
+                border-bottom: 1px solid rgba(173, 172, 172, 0.801);
+               
+            }
+            ion-avatar{
+                width: 50px !important;
+                height: 50px !important;
+                img{
+                    width: 50px !important;
+                    height: 50px !important;
+                    border: 2px solid rgb(250, 25, 74);
+                }
+            }
+        }
+    }
 }

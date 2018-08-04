@@ -16,6 +16,7 @@ import { AdminDetalleProductoPage  } from '../pages/admin-detalle-producto/admin
 
 import { ParallaxHeaderDirective } from '../directives/parallax-header/parallax-header';
 import { Camera } from '@ionic-native/camera';
+import { UsuarioProvider } from '../providers/usuario/usuario';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyArzyeoT4gsBUy1eyH3rScuB1TB3SfmD-Q",
@@ -57,7 +58,8 @@ export const firebaseConfig = {
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ProductoProvider,
-    Camera
+    Camera,
+    UsuarioProvider
   ]
 })
 export class AppModule {}
