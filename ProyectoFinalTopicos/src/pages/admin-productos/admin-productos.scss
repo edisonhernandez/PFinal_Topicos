@@ -2,12 +2,15 @@ page-admin-productos {
     .card-background-page {
         display: flex;
         flex-direction: column;
+        background-image: url('../../assets/imgs/fondo.jpg');
+        background-size: cover;
         ion-card {
           position: relative;
           text-align: center;
-          border: 2px solid blue;
+        //  border: 2px solid blue;
           width: 90%;
           height: 100%;
+          border-radius: 8px;
 
           img{
             height: 100%;

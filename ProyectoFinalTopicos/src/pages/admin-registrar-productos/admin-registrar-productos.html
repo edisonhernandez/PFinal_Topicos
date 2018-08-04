@@ -31,18 +31,29 @@
       <ion-label  style="color: black;" floating>Código</ion-label>
       <ion-input formControlName="codigo" type="text" >
       </ion-input>
+
     </ion-item>
+    <div class="alert" *ngIf="!crearProductoForm.controls['codigo'].valid && crearProductoForm.controls['codigo'].touched">
+      Este campo es requerido</div>
+  
     <ion-item>
       <ion-label  style="color: black;" floating>Nombre</ion-label>
       <ion-input formControlName="nombre" type="text" >
       </ion-input>
     </ion-item>
+    <div class="alert" *ngIf="!crearProductoForm.controls['nombre'].valid && crearProductoForm.controls['nombre'].touched">
+      Ingresa un nombre</div>
+  
     <ion-item>
         <ion-label style="color: black;" floating>Marca</ion-label>
         <ion-input formControlName="marca" type="tex" 
           >
         </ion-input>
       </ion-item>
+      <div class="alert" *ngIf="!crearProductoForm.controls['marca'].valid && crearProductoForm.controls['marca'].touched">
+        La marca es necesaria</div>
+    
+  
     <ion-list>
       <ion-item>
         <ion-label>Categoría</ion-label>
@@ -62,19 +73,23 @@
           >
         </ion-input>
       </ion-item>
+      <div class="alert" *ngIf="!crearProductoForm.controls['descripcion'].valid && crearProductoForm.controls['descripcion'].touched">
+        Ingresa una descripción</div>
       <ion-item>
           <ion-label style="color: black;" floating>Precio de compra</ion-label>
-          <ion-input formControlName="precioCompra" type="number" 
-            >
+          <ion-input formControlName="precioCompra" type="number" >
           </ion-input>
         </ion-item>
+        <div class="alert" *ngIf="!crearProductoForm.controls['precioCompra'].valid && crearProductoForm.controls['precioCompra'].touched">
+          Se necesita el precio de compra</div>
     <ion-item>
       <ion-label style="color: black;" floating>Precio de venta</ion-label>
       <ion-input formControlName="precioVenta" type="number" 
         >
       </ion-input>
     </ion-item>
-
+    <div class="alert" *ngIf="!crearProductoForm.controls['precioVenta'].valid && crearProductoForm.controls['precioVenta'].touched">
+      Se necesita el precio de venta</div>
     
     <ion-item>
       <ion-label  style="color: black;" floating>Stock</ion-label>
@@ -82,7 +97,8 @@
        >
       </ion-textarea>
     </ion-item>
-
+    <div class="alert" *ngIf="!crearProductoForm.controls['stock'].valid && crearProductoForm.controls['stock'].touched">
+      Se necesita el stock</div>
 
     <button ion-button block type="submit" (click)="crearProducto()" [disabled]="!crearProductoForm.valid">
       <span>Guardar Producto</span>

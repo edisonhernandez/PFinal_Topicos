@@ -19,6 +19,8 @@ import { AdminEditarProductoPage } from '../pages/admin-editar-producto/admin-ed
 import { ParallaxHeaderDirective } from '../directives/parallax-header/parallax-header';
 import { Camera } from '@ionic-native/camera';
 import { UsuarioProvider } from '../providers/usuario/usuario';
+import { NativeAudio } from '@ionic-native/native-audio';
+import { SmartAudioProvider } from '../providers/smart-audio/smart-audio';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyArzyeoT4gsBUy1eyH3rScuB1TB3SfmD-Q",
@@ -65,7 +67,9 @@ export const firebaseConfig = {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ProductoProvider,
     Camera,
-    UsuarioProvider
+    UsuarioProvider,
+    NativeAudio,
+    SmartAudioProvider
   ]
 })
 export class AppModule {}

@@ -6,6 +6,9 @@ import { ModalController } from 'ionic-angular';
 import { AdminEditarProductoPage } from '../admin-editar-producto/admin-editar-producto';
 import { ProductoProvider} from '../../providers/producto/producto';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import { SmartAudioProvider } from '../../providers/smart-audio/smart-audio';
+ 
+
 /**
  * Generated class for the AdminDetalleProductoPage page.
  *
@@ -36,7 +39,8 @@ id = '';
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public modalCtrl: ModalController,public loadingCtrl: LoadingController,
     public alertCtrl: AlertController,
-    public productoProvider: ProductoProvider,private camera: Camera) {
+    public productoProvider: ProductoProvider,
+    private camera: Camera,public smartAudio: SmartAudioProvider) {
     this.id = this.navParams.get('id');
   }
 
@@ -114,8 +118,10 @@ id = '';
             this.productoProvider.desactivarProducto(this.id)
             .then(
               () => {
+                this.smartAudio.play('tabSwitch2');
                 this.detallesProd.estado = 'desactivo';
                 loading.dismiss().then(() => {
+                  
                   const alert: Alert = this.alertCtrl.create({
                     message: "Desactivado con exito",
                     buttons: [{ text: 'Ok', role: 'cancel' }],
@@ -162,6 +168,7 @@ id = '';
               () => {
                 this.detallesProd.estado = 'activo';
                 loading.dismiss().then(() => {
+                  this.smartAudio.play('tabSwitch2');
                   const alert: Alert = this.alertCtrl.create({
                     message: "Activado con exito",
                     buttons: [{ text: 'Ok', role: 'cancel' }],

@@ -5,7 +5,9 @@ import {IonicPage, NavController, NavParams,Loading,LoadingController,AlertContr
   import { Camera, CameraOptions } from '@ionic-native/camera';
 import { ActionSheetController } from 'ionic-angular';
 import { ProductoProvider} from '../../providers/producto/producto';
-
+import { NativeAudio } from '@ionic-native/native-audio';
+import { SmartAudioProvider } from '../../providers/smart-audio/smart-audio';
+ 
 /**
  * Generated class for the AdminRegistrarProductosPage page.
  *
@@ -25,7 +27,8 @@ export class AdminRegistrarProductosPage {
     public navParams: NavParams, public loadingCtrl: LoadingController,
     public alertCtrl: AlertController, public formBuilder: FormBuilder,
     private camera: Camera,public actionSheetCtrl: ActionSheetController,
-    public productoProvider: ProductoProvider
+    public productoProvider: ProductoProvider,
+    private nativeAudio: NativeAudio,public smartAudio: SmartAudioProvider
     ) {
 
       this.crearProductoForm = formBuilder.group({
@@ -44,6 +47,8 @@ export class AdminRegistrarProductosPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AdminRegistrarProductosPage');
+  
+    
   }
 
   takephoto(){
@@ -118,7 +123,7 @@ export class AdminRegistrarProductosPage {
   
   crearProducto(): void {
    
-    
+    this.smartAudio.play('tabSwitch');
     if(this.profilePhoto == undefined){
       this.profilePhoto = 'http://rebeldstore.com/352/sudadera-original-hombre-grey.jpg';
       
@@ -143,6 +148,7 @@ if(categoria != '' && codigo !='' && descripcion !='' && marca !='' && nombre !=
       this.productoProvider.crearProducto(categoria,codigo,imagen,descripcion,marca,nombre,precioCompra,precioVenta,stock)
       .then(
         () => {
+         
           loading.dismiss().then(() => {
             const alert: Alert = this.alertCtrl.create({
               message: "Guardado con exito",
@@ -167,4 +173,9 @@ if(categoria != '' && codigo !='' && descripcion !='' && marca !='' && nombre !=
 
     
   }
+
+
+  changeTab() {
+    this.smartAudio.play('tabSwitch');
+}
 }
