@@ -14,6 +14,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { ProductoProvider } from '../providers/producto/producto';
 import { AdminDetalleProductoPage  } from '../pages/admin-detalle-producto/admin-detalle-producto';
 import { AdminDetalleUsuarioPage } from '../pages/admin-detalle-usuario/admin-detalle-usuario';
+import { AdminEditarProductoPage } from '../pages/admin-editar-producto/admin-editar-producto';
 
 import { ParallaxHeaderDirective } from '../directives/parallax-header/parallax-header';
 import { Camera } from '@ionic-native/camera';
@@ -37,7 +38,8 @@ export const firebaseConfig = {
     TabsPage,
     ParallaxHeaderDirective,
     AdminDetalleProductoPage,
-    AdminDetalleUsuarioPage
+    AdminDetalleUsuarioPage,
+    AdminEditarProductoPage
   ],
   imports: [
     BrowserModule,
@@ -54,7 +56,8 @@ export const firebaseConfig = {
     AdminRegistrarProductosPage,
     TabsPage,
     AdminDetalleProductoPage,
-    AdminDetalleUsuarioPage
+    AdminDetalleUsuarioPage,
+    AdminEditarProductoPage
   ],
   providers: [
     StatusBar,
