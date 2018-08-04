@@ -23,20 +23,20 @@ export class ProductoProvider {
     
     categoria:string,
     codigo:string,
-   
-    
+    imagen:string,
+    descripcion:string,
     marca:string,
     nombre:string,
     precioCompra:number,
     precioVenta:number,
     stock:number): Promise<void> {
     const id = this.firestore.createId();
-    const fechaRegistro='03/08/2018';
+    const fechaRegistro=new Date();
     const estado = 'activo';
-    const descripcion = 'asd'
-    const imagen = 'aa'
+   // const descripcion = 'asd'
+   // const imagen = 'aa'
     return this.firestore.doc(`productos/${id}`).set({
-      id,categoria,codigo,estado,fechaRegistro,imagen,marca,precioCompra,precioVenta,nombre, descripcion,stock
+      id,categoria,codigo,estado,fechaRegistro,imagen,descripcion,marca,nombre,precioCompra,precioVenta ,stock
     });
   }
 }

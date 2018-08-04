@@ -119,10 +119,12 @@ export class AdminRegistrarProductosPage {
   crearProducto(): void {
     const loading: Loading = this.loadingCtrl.create();
     loading.present();
-    if(this.profilePhoto==null){
-      this.profilePhoto == 'http://rebeldstore.com/352/sudadera-original-hombre-grey.jpg';
-
+    
+    if(this.profilePhoto == undefined){
+      this.profilePhoto = 'http://rebeldstore.com/352/sudadera-original-hombre-grey.jpg';
+      
     }
+   
     const categoria = this.crearProductoForm.value.categoria;
     const codigo= this.crearProductoForm.value.codigo;
     const descripcion= this.crearProductoForm.value.descripcion;
@@ -133,10 +135,11 @@ export class AdminRegistrarProductosPage {
     const precioCompra= this.crearProductoForm.value.precioCompra;
     const precioVenta=this.crearProductoForm.value.precioVenta;
     const stock= this.crearProductoForm.value.stock;
-    
+   
+   
 
-    
-    this.productoProvider.crearProducto(categoria,codigo,marca,precioCompra,precioVenta,nombre,stock)
+
+    this.productoProvider.crearProducto(categoria,codigo,imagen,descripcion,marca,nombre,precioCompra,precioVenta,stock)
       .then(
         () => {
           loading.dismiss().then(() => {
