@@ -168,7 +168,7 @@ id = '';
               () => {
                 this.detallesProd.estado = 'activo';
                 loading.dismiss().then(() => {
-                  this.smartAudio.play('tabSwitch2');
+                  this.smartAudio.play('activar');
                   const alert: Alert = this.alertCtrl.create({
                     message: "Activado con exito",
                     buttons: [{ text: 'Ok', role: 'cancel' }],
