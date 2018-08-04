@@ -13,7 +13,24 @@
   <div class="main-content">
       
       <img src="{{detallesProd.imagen}}" class="dp">
-      <ion-fab right bottom>
+      <ion-list class="dp2">
+        <ion-item>
+          
+          <button (click)="presentProductoModal(id)" color="danger" ion-button outline item-end icon-start>
+            <ion-icon name="create"></ion-icon>
+            Editar
+          </button>
+          <button (click)="desactivarProduct()" *ngIf="detallesProd.estado == 'activo'" color="secondary" ion-button outline item-end icon-start>
+              <ion-icon name="checkmark-circle"></ion-icon>
+              Activo
+            </button>
+            <button (click)="activarProduct()" *ngIf="detallesProd.estado == 'desactivo'" color="danger" ion-button outline item-end icon-start>
+                <ion-icon name="checkmark-circle"></ion-icon>
+                Desactivo
+              </button>
+        </ion-item>
+      </ion-list>
+      <ion-fab center bottom>
           <button ion-fab color="primary" mini><ion-icon name="camera"></ion-icon></button>
           <ion-fab-list >
             <button (click)="takephoto()" ion-fab><ion-icon name="ios-camera"></ion-icon></button>
@@ -21,25 +38,7 @@
            
           </ion-fab-list>
         </ion-fab>
-        <div class="bntsProd">
-            <ion-list >
-                <ion-item>
-                  
-                  <button (click)="presentProductoModal(id)" color="danger" ion-button outline item-end icon-start>
-                    <ion-icon name="create"></ion-icon>
-                    Editar
-                  </button>
-                  <button (click)="desactivarProduct()" *ngIf="detallesProd.estado == 'activo'" color="secondary" ion-button outline item-end icon-start>
-                      <ion-icon name="checkmark-circle"></ion-icon>
-                      Activo
-                    </button>
-                    <button (click)="activarProduct()" *ngIf="detallesProd.estado == 'desactivo'" color="danger" ion-button outline item-end icon-start>
-                        <ion-icon name="checkmark-circle"></ion-icon>
-                        Desactivo
-                      </button>
-                </ion-item>
-              </ion-list>
-        </div>
+       
         
       <h1 text-center>{{detallesProd.nombre}}</h1>
       <ion-list no-lines>
