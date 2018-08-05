@@ -1,13 +1,7 @@
-<!--
-  Generated template for the ListaproductosPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
-    <ion-navbar>
-        <ion-title>Inicio Carrito</ion-title>
+    <ion-navbar color="primary">
+        <ion-title>Explorar</ion-title>
     </ion-navbar>
 
 </ion-header>
@@ -15,22 +9,19 @@
 
 <ion-content padding>
 
-    <ion-grid>
-        <ion-row *ngFor="let producto of productos" (click)="verProducto(producto)">
-            <ion-col>
-                <ion-card>
-                    <ion-card-header>
-                        <img src={{producto.imagen}} alt="Imagen Producto">
-                    </ion-card-header>
-                    <ion-card-content>
-                        <h3>Nombre: {{ producto.id}}</h3>
-                        <p>Cantidad: {{ producto.categoria}}</p>
-                        <p>Precio: ${{ producto.nombre}}</p>
-                        <p>Sabor: {{ producto.stock}}</p>
-                        <p>URL Image: {{producto.imagen}}</p>
-                    </ion-card-content>
-                </ion-card>
-            </ion-col>
-        </ion-row>
-    </ion-grid>
+    <ion-list>
+        <ion-item *ngFor="let producto of productos" (click)="verProducto(producto)">
+            <ion-thumbnail item-start>
+                <img src={{producto.imagen}}>
+            </ion-thumbnail>
+            <ion-item>
+                <p>{{producto.nombre}}</p>
+                <p>{{producto.marca}}</p>
+                <h3>${{producto.precioVenta}}</h3>
+                <ion-badge item-end>{{producto.stock}}</ion-badge>
+            </ion-item>
+
+
+        </ion-item>
+    </ion-list>
 </ion-content>

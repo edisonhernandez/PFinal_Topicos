@@ -21,11 +21,6 @@ export class ListaproductosPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.db = firebase.firestore();
     this.cargarProductos();
-
-  }
-
-  ionViewDidLoad() {
-    //console.log('ionViewDidLoad ListaproductosPage');
   }
 
   cargarProductos(){
@@ -41,12 +36,11 @@ export class ListaproductosPage {
   }
 
   ionViewDidEnter() {    
-    //console.log('Cargo Home Page');
     this.cargarProductos();
   }
 
   verProducto(producto){
-    console.log(producto);
+    //console.log(producto);
     this.navCtrl.push(ProductounicoPage,{
       producto: producto,
       usuario: this.usuarios[0]
