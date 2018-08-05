@@ -1,0 +1,24 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Bienvenido</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-card>
+                    <ion-card-header>
+                        <img src={{objetoProducto.imagen}} alt="Imagen Producto">
+                    </ion-card-header>
+                    <ion-card-content>
+                        <h3>Nombre: {{objetoProducto.id}}</h3>
+                        <p>Cantidad: {{objetoProducto.categoria}}</p>
+                        <p>Precio: ${{objetoProducto.nombre}}</p>
+                        <p>Sabor: {{objetoProducto.stock}}</p>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
