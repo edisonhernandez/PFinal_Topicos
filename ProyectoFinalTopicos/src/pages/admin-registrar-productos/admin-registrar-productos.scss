@@ -1,0 +1,57 @@
+page-admin-registrar-productos {
+    .usFoto{
+        width: 87%;
+        margin-left: auto;
+        margin-right: auto;
+        
+        //height: 50vh;
+        
+    }
+    .dp{
+        -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        height: 140px;
+        width: 130px;
+       // z-index: 10;
+        //margin-top:-70px;
+        //position: relative;
+        //left:50%;
+        margin-right:auto;
+        margin-left: auto;
+      // transform: translate(-50%,-50%);
+        box-shadow: 0px 13px 40px -8px rgba(0,0,0,0.75);
+    }
+    .card-title {
+        position: absolute;
+        top: 15%;
+        font-size: 2.0em;
+        width: 100%;
+        left: 42%;
+        font-weight: bold;
+        color: #fff;
+        button{
+            background: rgba(0, 0, 0, 0.699);
+        border: 1px solid rgba($color: #074dcf, $alpha: .8);
+        border-radius: 40px;
+        
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-right: 10px;
+        padding-left: 10px;
+        
+
+        }
+        ion-icon{
+            font-size: 30px;
+        }
+      }
+      .alert{
+          padding-top: 5px;
+          color: red;
+         
+          text-align: center;
+      }
+      .list-md {
+        margin: 10px 0 0px 0;
+    }
+}

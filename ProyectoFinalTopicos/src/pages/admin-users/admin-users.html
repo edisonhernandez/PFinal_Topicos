@@ -1,0 +1,43 @@
+
+
+
+<ion-content class="usuarios">
+    <div padding>
+        <ion-segment [(ngModel)]="users">
+          <ion-segment-button value="Ccompras">
+            Con compras
+          </ion-segment-button>
+          <ion-segment-button value="Scompras">
+            Sin compras
+          </ion-segment-button>
+        </ion-segment>
+      </div>
+      
+      <div [ngSwitch]="users">
+        <ion-list *ngSwitchCase="'Ccompras'">
+            <ion-list>
+                <ion-item-sliding col-12 *ngFor= "let user of listaUsuarios | async">
+                  <ion-item>
+                    <ion-avatar item-start>
+                      <img src="{{user.imagen}}">
+                    </ion-avatar>
+                    <h2 class="name">{{user.nombre}} {{user.apellidos}}</h2>
+                    <p>Registrado el: {{user.fechaRegistro}}</p>
+                  </ion-item>
+                  
+                  <ion-item-options side="right">
+                    <button (click)="presentProfileModal(user.id)" ion-button color="primary">
+                      <ion-icon name="list-box"></ion-icon>
+                      Detalles
+                    </button>
+                  </ion-item-options>
+                </ion-item-sliding>
+              </ion-list>
+        </ion-list>
+      
+        <ion-list *ngSwitchCase="'Scompras'">
+           
+        </ion-list>
+      </div>
+  
+</ion-content>
