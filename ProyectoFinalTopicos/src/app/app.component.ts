@@ -3,14 +3,21 @@ import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+
+import { ListaproductosPage } from '../pages/listaproductos/listaproductos';
+
+=======
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { SmartAudioProvider } from '../providers/smart-audio/smart-audio';
+
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any =  TabsPage;
+
+  rootPage:any = ListaproductosPage;
+
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
     smartAudio: SmartAudioProvider) {

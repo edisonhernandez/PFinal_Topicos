@@ -1,0 +1,27 @@
+<ion-header>
+
+    <ion-navbar color="primary">
+        <ion-title>Explorar</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-list>
+        <ion-item *ngFor="let producto of productos" (click)="verProducto(producto)">
+            <ion-thumbnail item-start>
+                <img src={{producto.imagen}}>
+            </ion-thumbnail>
+            <ion-item>
+                <p>{{producto.nombre}}</p>
+                <p>{{producto.marca}}</p>
+                <h3>${{producto.precioVenta}}</h3>
+                <ion-badge item-end>{{producto.stock}}</ion-badge>
+            </ion-item>
+
+
+        </ion-item>
+    </ion-list>
+</ion-content>
